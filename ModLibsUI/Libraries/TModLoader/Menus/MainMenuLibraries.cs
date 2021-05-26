@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;
-using Terraria.ModLoader.Config;
 using Terraria.UI;
+using Terraria.ModLoader.Config;
 using ModLibsCore.Libraries.Debug;
 using ModLibsCore.Libraries.DotNET.Reflection;
 using ModLibsCore.Services.Timers;
