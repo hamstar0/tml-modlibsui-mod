@@ -177,7 +177,7 @@ namespace ModLibsUI.Classes.UI.Elements {
 				Vector2 pos = UILibraries.GetHoverTipPosition( this.Url );
 				
 				Utils.DrawBorderStringFourWay( sb, Main.fontMouseText, this.Url, pos.X, pos.Y, Color.White, Color.Black, default(Vector2) );
-				//sb.DrawString( Main.fontMouseText, this.Url, UIHelpers.GetHoverTipPosition( this.Url ), Color.White );
+				//sb.DrawString( Main.fontMouseText, this.Url, UILibaries.GetHoverTipPosition( this.Url ), Color.White );
 			}
 		}
 

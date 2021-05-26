@@ -99,7 +99,7 @@ namespace ModLibsUI.Classes.UI.Elements.Dialogs {
 			this.ConfirmButton.Width.Set( 128f, 0f );
 			this.ConfirmButton.OnClick += ( _, __ ) => {
 				this.ConfirmAction();
-				Timers.SetTimer( "ModHelpers_UIPromptPanel_Remove_" + this.GetHashCode(), 0, false, () => {
+				Timers.SetTimer( "ModLibs_UIPromptPanel_Remove_" + this.GetHashCode(), 0, false, () => {
 					this.Remove();
 					return false;
 				} );
@@ -113,7 +113,7 @@ namespace ModLibsUI.Classes.UI.Elements.Dialogs {
 				this.CancelButton.Width.Set( 128f, 0f );
 				this.CancelButton.OnClick += ( _, __ ) => {
 					this.CancelAction.Invoke();
-					Timers.SetTimer( "ModHelpers_UIPromptPanel_Remove_" + this.GetHashCode(), 0, false, () => {
+					Timers.SetTimer( "ModLibs_UIPromptPanel_Remove_" + this.GetHashCode(), 0, false, () => {
 						this.Remove();
 						return false;
 					} );

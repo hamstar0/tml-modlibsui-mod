@@ -33,7 +33,7 @@ namespace ModLibsUI.Internals.Menus {
 		private static bool DebugModeMenuInfoLoaded = false;
 
 		private static void InitializeDebugModeMenuInfo() {
-			if( !ModHelpersConfig.Instance.DebugModeMenuInfo ) { return; }
+			if( !ModLibsUIConfig.Instance.DebugModeMenuInfo ) { return; }
 
 			Main.OnPostDraw += Menus.DebugModeMenuInfo;
 			Menus.DebugModeMenuInfoLoaded = true;

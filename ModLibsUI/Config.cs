@@ -5,14 +5,14 @@ using Terraria.ModLoader.Config;
 
 namespace ModLibsUI {
 	/// <summary>
-	/// Defines Mod Libs config settings.
+	/// Defines config settings.
 	/// </summary>
-	[Label( "Mod Libs - UI Settings" )]
-	public class ModHelpersConfig : ModConfig {
+	[Label( "Mod Libs - UI - Settings" )]
+	public class ModLibsUIConfig : ModConfig {
 		/// <summary>
 		/// Gets the stack-merged singleton instance of this config file.
 		/// </summary>
-		public static ModHelpersConfig Instance => ModContent.GetInstance<ModHelpersConfig>();
+		public static ModLibsUIConfig Instance => ModContent.GetInstance<ModLibsUIConfig>();
 
 
 

@@ -75,7 +75,7 @@ namespace ModLibsUI.Classes.UI.Menu.UI {
 			rect.Width -= 4;
 			rect.Height -= 5;
 
-			HudHelpers.DrawBorderedRect( sb, this.GetBgColor(), this.GetEdgeColor(), rect, 2 );
+			HudLibaries.DrawBorderedRect( sb, this.GetBgColor(), this.GetEdgeColor(), rect, 2 );
 
 			base.Draw( sb );
 		}*/

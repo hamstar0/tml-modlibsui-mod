@@ -8,7 +8,7 @@ using ModLibsCore.Libraries.DotNET.Reflection;
 
 namespace ModLibsUI.Classes.UI.Theme {
 	/// <summary>
-	/// Defines a theme to use for common UI color and layout settings. Default values are a Mod Helpers custom theme.
+	/// Defines a theme to use for common UI color and layout settings.
 	/// </summary>
 	public partial class UITheme {
 		/// <returns>Clone of the current object.</returns>

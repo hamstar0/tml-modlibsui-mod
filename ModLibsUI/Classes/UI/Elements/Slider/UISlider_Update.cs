@@ -86,7 +86,7 @@ namespace ModLibsUI.Classes.UI.Elements.Slider {
 					new Point(
 						(int)((float)Main.mouseX / Main.UIScale),
 						(int)((float)Main.mouseY / Main.UIScale)
-					),	//UIHelpers.ConvertToScreenPosition( Main.MouseWorld ).ToPoint(),
+					),  //UILibaries.ConvertToScreenPosition( Main.MouseWorld ).ToPoint(),
 					this.Range.Min,
 					this.Range.Max,
 					this.Ticks,

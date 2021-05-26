@@ -26,12 +26,5 @@ namespace ModLibsUI {
 
 			ModLibsUIMod.Instance = null;
 		}
-
-
-		////////////////
-
-		//public override void UpdateMusic( ref int music ) { //, ref MusicPriority priority
-		//	this.MusicHelpers.UpdateMusic();
-		//}
 	}
 }

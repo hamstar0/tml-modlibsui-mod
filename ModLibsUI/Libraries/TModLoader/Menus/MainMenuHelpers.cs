@@ -126,7 +126,7 @@ namespace ModLibsUI.Libraries.TModLoader.Menus {
 				return;
 			}
 
-			Timers.SetTimer( "ModHelpersModDownloadPrompt", 5, true, () => {
+			Timers.SetTimer( "ModLibsModDownloadPrompt", 5, true, () => {
 				if( MenuContextService.GetCurrentMenuUI()?.GetType().Name != "UIModBrowser" ) {
 					return false;
 				}
@@ -148,7 +148,7 @@ namespace ModLibsUI.Libraries.TModLoader.Menus {
 
 		/// <summary>
 		/// Loads the mod browser menu with a given set of mods to one-click bulk download
-		/// (via. `ModMenuHelpers.ApplyModBrowserFilter(...)`).
+		/// (via. `ModMenuLibaries.ApplyModBrowserFilter(...)`).
 		/// </summary>
 		/// <param name="packTitle">Name of the set.</param>
 		/// <param name="modNames">Mod (internal) names of the set.</param>
@@ -171,7 +171,7 @@ namespace ModLibsUI.Libraries.TModLoader.Menus {
 				return;
 			}
 
-			Timers.SetTimer( "ModHelpersModDownloadPrompt", 5, true, () => {
+			Timers.SetTimer( "ModLibsModDownloadPrompt", 5, true, () => {
 				if( MenuContextService.GetCurrentMenuUI()?.GetType().Name != "UIModBrowser" ) {
 					return false;
 				}
@@ -202,8 +202,8 @@ namespace ModLibsUI.Libraries.TModLoader.Menus {
 			Interface.modBrowser.updateNeeded = true;
 
 			int menuMode;
-			if( !ReflectionHelpers.GetField<int>( interfaceType, null, "downloadModsID", out menuMode ) ) {
-				LogHelpers.Log( "Could not switch to downloads menu." );
+			if( !ReflectionLibaries.GetField<int>( interfaceType, null, "downloadModsID", out menuMode ) ) {
+				LogLibaries.Log( "Could not switch to downloads menu." );
 				return;
 			}
 			Main.PlaySound( SoundID.MenuTick );

@@ -67,8 +67,8 @@ namespace ModLibsUI.Libraries.TModLoader.Menus {
 			}
 
 			//UIElement filterToggle;
-			//ReflectionHelpers.GetProperty<UIElement>( modBrowserUi, "UpdateFilterToggle", out filterToggle );
-			//ReflectionHelpers.SetProperty( filterToggle, "CurrentState", 0 );
+			//ReflectionLibaries.GetProperty<UIElement>( modBrowserUi, "UpdateFilterToggle", out filterToggle );
+			//ReflectionLibaries.SetProperty( filterToggle, "CurrentState", 0 );
 
 			if( isFiltered ) {
 				specialFilterProp.SetValue( modBrowserUi, modNames );

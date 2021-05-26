@@ -55,7 +55,7 @@ namespace ModLibsUI.Services.UI.Menus {
 			// Validate
 			if( ui != null ) {
 				if( !Enum.TryParse( ui.GetType().Name, out openingUiDef ) ) {
-					if( ModHelpersConfig.Instance.DebugModeMenuInfo ) {
+					if( ModLibsUIConfig.Instance.DebugModeMenuInfo ) {
 						LogLibraries.WarnOnce( "Could not get MenuUIDefinition " + ui.GetType().Name );
 					}
 					this.CurrentMenuUI = 0;
