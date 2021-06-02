@@ -11,9 +11,7 @@ using ModLibsCore.Libraries.XNA;
 namespace ModLibsUI.Internals.Menus {
 	/// @private
 	class Menus : ILoadable {
-		void ILoadable.OnModsLoad() {
-			throw new NotImplementedException();
-		}
+		void ILoadable.OnModsLoad() { }
 
 		void ILoadable.OnPostModsLoad() {
 			if( Main.dedServ ) { return; }
@@ -23,9 +21,7 @@ namespace ModLibsUI.Internals.Menus {
 			} );
 		}
 
-		void ILoadable.OnModsUnload() {
-			throw new NotImplementedException();
-		}
+		void ILoadable.OnModsUnload() { }
 
 
 		////////////////
