@@ -14,6 +14,16 @@ namespace ModLibsUI.Classes.UI.Elements {
 	/// Theme-able UIText.
 	/// </summary>
 	public class UIThemedText : UIText, IThemeable {
+		private float ScaleCopy;
+		private bool LargeCopy;
+		private Vector2 SizeCopy;
+
+		/// <summary></summary>
+		public bool NoPulsingColors = false;
+
+
+		////////////////
+
 		/// <summary>
 		/// Appearance style.
 		/// </summary>
@@ -21,14 +31,6 @@ namespace ModLibsUI.Classes.UI.Elements {
 
 		/// <summary></summary>
 		public bool IsHidden { get; protected set; }
-
-
-		////////////////
-
-		private float ScaleCopy;
-		private bool LargeCopy;
-		private Vector2 SizeCopy;
-
 
 
 		////////////////
@@ -163,23 +165,64 @@ namespace ModLibsUI.Classes.UI.Elements {
 					}
 				}
 
-				ChatManager.DrawColorCodedStringWithShadow(
-					spriteBatch: sb,
+				this.DrawStringSnippetsWithShadow(
+					sb: sb,
 					font: font,
 					snippets: snippets,
 					position: pos,
 					rotation: 0f,
 					origin: Vector2.Zero,
 					baseScale: new Vector2( this.ScaleCopy ),
-					hoveredSnippet: out _,
 					maxWidth: -1f,	//Main.screenWidth; TODO?
-					spread: 2f
+					spread: 2f,
+					ignoreColors: this.NoPulsingColors,
+					hoveredSnippetIdx: out _
 				);
 
 				pos.Y += (float)font.LineSpacing * largestSnippetScaleOfLine * this.ScaleCopy;
 
 				largestSnippetScaleOfLine = 0f;
 			}
+		}
+
+
+		private Vector2 DrawStringSnippetsWithShadow(
+					SpriteBatch sb,
+					DynamicSpriteFont font,
+					TextSnippet[] snippets,
+					Vector2 position,
+					float rotation,
+					Vector2 origin,
+					Vector2 baseScale,
+					float maxWidth,
+					float spread,
+					bool ignoreColors,
+					out int hoveredSnippetIdx ) {
+			ChatManager.DrawColorCodedStringShadow(
+				spriteBatch: sb,
+				font: font,
+				snippets: snippets,
+				position: position,
+				baseColor: Color.Black,
+				rotation: rotation,
+				origin: origin,
+				baseScale: baseScale,
+				maxWidth: maxWidth,
+				spread: spread
+			);
+			return ChatManager.DrawColorCodedString(
+				spriteBatch: sb,
+				font: font,
+				snippets: snippets,
+				position: position,
+				baseColor: Color.Black,
+				rotation: rotation,
+				origin: origin,
+				baseScale: baseScale,
+				hoveredSnippet: out hoveredSnippetIdx,
+				maxWidth: maxWidth,
+				ignoreColors: ignoreColors	//usually false
+			);
 		}
 	}
 }
