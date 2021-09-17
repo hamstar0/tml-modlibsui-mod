@@ -227,7 +227,7 @@ namespace ModLibsUI.Classes.UI.Elements {
 				font: font,
 				snippets: snippets,
 				position: position,
-				baseColor: Color.Black,
+				baseColor: ignoreColors ? this.TextColor : Color.White,
 				rotation: rotation,
 				origin: origin,
 				baseScale: baseScale,
