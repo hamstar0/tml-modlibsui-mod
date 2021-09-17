@@ -59,19 +59,30 @@ namespace ModLibsUI.Classes.UI.Elements {
 
 		////////////////
 
-		/// <param name="theme">Appearance style.</param>
-		/// <param name="label">Display text next to checkbox control.</param>
-		/// <param name="title">Mouse hover popup label.</param>
-		/// <param name="isClickable">Enables mouse interactivity.</param>
-		/// <param name="textScale">Multiplies label text size.</param>
-		/// <param name="large">Uses 'large' label text style.</param>
+		[Obsolete("use other constructor", true)]
 		public UICheckbox( UITheme theme,
 				string label,
 				string title,
 				bool isClickable = true,
 				float textScale = 1,
 				bool large = false )
-				: base( theme, true, label, textScale, large ) {
+				: this( theme, label, title, false, isClickable, textScale, large ) { }
+
+		/// <param name="theme">Appearance style.</param>
+		/// <param name="label">Display text next to checkbox control.</param>
+		/// <param name="title">Mouse hover popup label.</param>
+		/// <param name="noPulsingText">Removes Terraria's usual 'pulsing' color effect.</param>
+		/// <param name="isClickable">Enables mouse interactivity.</param>
+		/// <param name="textScale">Multiplies label text size.</param>
+		/// <param name="large">Uses 'large' label text style.</param>
+		public UICheckbox( UITheme theme,
+				string label,
+				string title,
+				bool noPulsingText,
+				bool isClickable = true,
+				float textScale = 1,
+				bool large = false )
+				: base( theme, true, label, noPulsingText, textScale, large ) {
 			if( Main.netMode != NetmodeID.Server ) {
 				this.CheckboxTexture = ModLibsUIMod.Instance.GetTexture( "Classes/UI/Elements/check_box" );
 				this.CheckmarkTexture = ModLibsUIMod.Instance.GetTexture( "Classes/UI/Elements/check_mark" );

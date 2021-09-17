@@ -19,7 +19,7 @@ namespace ModLibsUI.Classes.UI.Elements {
 		private Vector2 SizeCopy;
 
 		/// <summary></summary>
-		public bool NoPulsingColors = false;
+		public bool NoPulsingColor = false;
 
 
 		////////////////
@@ -35,15 +35,25 @@ namespace ModLibsUI.Classes.UI.Elements {
 
 		////////////////
 
+		[Obsolete("use other constructor", true)]
+		public UIThemedText( UITheme theme,
+					bool skipThemeRefreshNow,
+					string text,
+					float textScale=1,
+					bool large=false )
+				: this( theme, skipThemeRefreshNow, text, false, textScale, large ) { }
+
 		/// <summary></summary>
 		/// <param name="theme"></param>
 		/// <param name="skipThemeRefreshNow"></param>
+		/// <param name="noPulsingColor">Removes Terraria's usual 'pulsing' color effect.</param>
 		/// <param name="text"></param>
 		/// <param name="textScale"></param>
 		/// <param name="large"></param>
 		public UIThemedText( UITheme theme,
 					bool skipThemeRefreshNow,
 					string text,
+					bool noPulsingColor,
 					float textScale=1,
 					bool large=false )
 				: base( text, textScale, large ) {
@@ -57,6 +67,8 @@ namespace ModLibsUI.Classes.UI.Elements {
 				font.MeasureString( text.ToString() ).X,
 				large ? 32f : 16f
 			) * textScale;
+
+			this.NoPulsingColor = noPulsingColor;
 
 			if( !skipThemeRefreshNow ) {
 				theme.ApplyText( this );
@@ -175,7 +187,7 @@ namespace ModLibsUI.Classes.UI.Elements {
 					baseScale: new Vector2( this.ScaleCopy ),
 					maxWidth: -1f,	//Main.screenWidth; TODO?
 					spread: 2f,
-					ignoreColors: this.NoPulsingColors,
+					ignoreColors: this.NoPulsingColor,
 					hoveredSnippetIdx: out _
 				);
 

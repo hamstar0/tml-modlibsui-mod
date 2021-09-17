@@ -33,7 +33,7 @@ namespace ModLibsUI.Classes.UI.Elements.Slider {
 			this.NumericInput.OnTextChange += ProcessInput;
 			this.Append( this.NumericInput );
 
-			this.LeftArrowElem = new UIThemedText( this.Theme, true, "< " );
+			this.LeftArrowElem = new UIThemedText( this.Theme, true, "< ", true );
 			this.LeftArrowElem.TextColor = Color.Gray;
 			this.LeftArrowElem.Top.Set( -2f, 0f );
 			this.LeftArrowElem.Left.Set( -UISlider.DefaultArrowsWidth - 4f, 1f );
@@ -53,7 +53,7 @@ namespace ModLibsUI.Classes.UI.Elements.Slider {
 			};
 			this.Append( (UIElement)this.LeftArrowElem );
 
-			this.RightArrowElem = new UIThemedText( this.Theme, true, " >  " );
+			this.RightArrowElem = new UIThemedText( this.Theme, true, " >  ", true );
 			this.RightArrowElem.TextColor = Color.Gray;
 			this.RightArrowElem.Top.Set( -2f, 0f );
 			this.RightArrowElem.Left.Set( -(UISlider.DefaultArrowsWidth * 0.5f) - 12f, 1f );
