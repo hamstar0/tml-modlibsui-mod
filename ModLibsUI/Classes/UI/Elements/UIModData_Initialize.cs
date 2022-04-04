@@ -16,13 +16,15 @@ namespace ModLibsUI.Classes.UI.Elements {
 	/// Defines a UI panel element specialized for rendering and displaying a mod's data (especially as a list item).
 	/// </summary>
 	public partial class UIModData : UIThemedPanel {
-		private bool InitializeMe( int? idx, Mod mod, bool willDrawOwnHoverElements = true ) {
+		private bool InitializeMe_If( int? idx, Mod mod, bool willDrawOwnHoverElements = true ) {
 			var self = this;
 			TmodFile modfile;
 			if( !ReflectionLibraries.Get(mod, "File", out modfile) || modfile == null ) {
 				LogLibraries.Warn( "Could not find mod "+mod.Name+"'s File" );
 				return false;
 			}
+
+			//
 
 			this.Mod = mod;
 			this.WillDrawOwnHoverElements = willDrawOwnHoverElements;
@@ -31,6 +33,8 @@ namespace ModLibsUI.Classes.UI.Elements {
 			this.HomepageUrl = null;
 			this.HasIconLoaded = false;
 			this.LatestAvailableVersion = default( Version );
+
+			//
 
 			//if( !ModHelpersConfig.Instance.DisableModMenuUpdates ) {
 			BuildPropertiesViewer props = modfile != null ?
@@ -54,7 +58,7 @@ namespace ModLibsUI.Classes.UI.Elements {
 
 			if( idx.HasValue ) {
 				this.DisplayIndex = new UIText( (int)idx + "" );
-				this.DisplayIndex.Left.Set( titleOffset, 0f );
+				this.DisplayIndex.Left.Set( titleOffset - 12f, 0f );
 				this.Append( (UIElement)this.DisplayIndex );
 
 				titleOffset += 16f;

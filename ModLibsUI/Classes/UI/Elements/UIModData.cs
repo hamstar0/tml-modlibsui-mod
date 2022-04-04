@@ -28,6 +28,15 @@ namespace ModLibsUI.Classes.UI.Elements {
 		/// </summary>
 		public Version LatestAvailableVersion { get; private set; }
 
+		////
+
+		/// <summary>
+		/// Intended position within mod display list.
+		/// </summary>
+		public int? KnownIndex { get; private set; } = null;
+
+		////
+
 		/// <summary>
 		/// Mod's icon.
 		/// </summary>
@@ -85,7 +94,9 @@ namespace ModLibsUI.Classes.UI.Elements {
 		/// <param name="willDrawOwnHoverElements">Indicates if this element draws its own mouse-hover elements.</param>
 		public UIModData( UITheme theme, int? idx, Mod mod, bool willDrawOwnHoverElements = true )
 				: base( theme, true ) {
-			this.InitializeMe( idx, mod, willDrawOwnHoverElements );
+			this.KnownIndex = idx;
+
+			this.InitializeMe_If( idx, mod, willDrawOwnHoverElements );
 
 			/*CustomLoadHooks.AddHook( GetModTags.TagsReceivedHookValidator, ( args ) => {
 				ISet<string> modTags = args.ModTags?.GetOrDefault( mod.Name );
@@ -153,7 +164,21 @@ namespace ModLibsUI.Classes.UI.Elements {
 			//	}
 			//} catch { }
 
-			return string.Compare( other.Mod.Name, this.Mod.Name );
+			if( this.KnownIndex.HasValue ) {
+				if( !other.KnownIndex.HasValue ) {
+					return -1;   // higher
+				} else if( this.KnownIndex.Value > other.KnownIndex.Value ) {
+					return 1;	// lower
+				} else if( this.KnownIndex.Value < other.KnownIndex.Value ) {
+					return -1;	// higher
+				} else {
+					return 0;
+				}
+			}
+
+			// Alphabetic
+
+			return string.Compare( this.Mod.Name, other.Mod.Name );
 		}
 	}
 }
